@@ -1,0 +1,16 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "newcontent";
+    Layout = "~/Views/Shared/_writerlayout.cshtml";
+}
+
+<h3 style="padding-top:15px">İçerik Ekleme Paneli:</h3>
+<form class="form-group" method="post">
+   
+    <div style="margin-top:10px">
+        <input type="hidden" value="@ViewBag.id" name="TitleId" />
+        @Html.TextAreaFor(x => x.ContentText, new { @class = "form-control", @placeholder = "İçerik", @rows = 5 })
+        <button  style="margin-top:7px" class="btn btn-success">Kaydet</button>
+    </div>
+</form>
+

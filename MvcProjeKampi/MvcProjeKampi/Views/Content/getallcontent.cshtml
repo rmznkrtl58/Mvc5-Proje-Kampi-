@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "getallcontent";
+    Layout = "~/Views/Shared/_adminlayout.cshtml";
+}
+
+<h4 style="padding-top:15px;font-weight:bold">İçerikler</h4>
+@using (Html.BeginForm("getallcontent", "Content", FormMethod.Get))
+            {
+                <div style="margin-top:30px">
+                    <label style="font-weight:bold;color:red;font-size:18px">Başlık:</label>
+                    @Html.TextBox("p")
+                    <button class="btn btn-info">search</button>
+                    
+                </div>
+            }
+<table style="margin-top: 10px" class="table table-bordered">
+    <tr style="background-color:#b1f531">
+        <th>
+            Başlık:
+        </th>
+        <th>
+            İçerik:
+        </th>
+    </tr>
+    @foreach (var x in Model)
+    {
+                <tr>
+                    <td>@x.Title.TitleName</td>
+                    <td>@x.ContentText</td>
+                </tr>
+        }
+    <tbody>
+
+    </tbody>
+</table>
+

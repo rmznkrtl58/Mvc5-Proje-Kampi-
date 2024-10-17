@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Title
+@{
+    ViewBag.Title = "edittitle";
+    Layout = "~/Views/Shared/_writerlayout.cshtml";
+}
+
+
+<h4 style="padding-top:10px;font-weight:bold">Başlık Ekleme Sayfası:</h4>
+@using (Html.BeginForm("edittitle", "UWriter", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.WriterId)
+    @Html.HiddenFor(x=>x.TitleDate)
+    @Html.HiddenFor(x=>x.TitleId)
+    <div style="margin-top:15px">
+        <label style="font-size:18px;font-weight:bold;color:#209d1f">Başlık Ad:</label>
+        @Html.TextBoxFor(x => x.TitleName, new { @class = "form-control", @placeholder = "Başlık Adı" })
+        @Html.ValidationMessageFor(x => x.TitleName)
+    </div>
+    <div style="margin-top:8px">
+        <label style="font-size:18px;font-weight:bold;color:#209d1f">Kategori Seçiniz...</label>
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.cd, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(x => x.cat)*@
+    </div>
+    <button style="margin-top:8px" class="btn btn-info">Kaydet</button>
+}
+
+
+
+
+
